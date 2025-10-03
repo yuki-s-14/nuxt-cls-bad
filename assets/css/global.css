@@ -19,6 +19,13 @@ html, body {
   border-bottom: 1px solid #e0c64a;
 }
 
+.cookie-bar {
+  background: #111827;
+  color: #f3f4f6;
+  padding: 10px 16px;
+  border-bottom: 1px solid #374151;
+}
+
 .container {
   max-width: var(--container-width);
   margin: 24px auto;

@@ -1,16 +1,26 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 const showTopBanner = ref(false)
+const showCookieBar = ref(false)
 onMounted(() => {
   // マウント後に「キャンペーンバナー」をファーストビューに注入することをシミュレート
   setTimeout(() => {
     showTopBanner.value = true
   }, 900)
+
+  // さらに遅れてクッキーバーを上部に挿入して追加のレイアウトシフトを誘発
+  setTimeout(() => {
+    showCookieBar.value = true
+  }, 1500)
 })
 </script>
 
 <template>
   <div>
+    <!-- さらに上に差し込まれるクッキーバー（遅延） -->
+    <div v-if="showCookieBar" class="cookie-bar">
+      🍪 このサイトはクッキーを使用します。<button>許可</button>
+    </div>
     <!-- 遅延挿入されたトップバナー -> すべてを下に押し下げる -->
     <div v-if="showTopBanner" class="top-banner">
       🚨 本日大セール: このバナーは遅れて表示されました（CLSデモ）
